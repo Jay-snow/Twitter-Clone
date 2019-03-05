@@ -5,37 +5,58 @@
   //  $link = mysql_
 
 
-  
-echo $_POST["username"];
-echo $_POST["password"];
-echo "Data has been pushed.";
 
-$username = filter_input(INPUT_POST, 'username');
+
+
+
+
+
+
+if (isset($_POST['submit']))
+{
+
+  include_once 'dbh.php';
+  $username = filter_input(INPUT_POST, 'username');
 $password = filter_input(INPUT_POST, 'password');
 
 if (!empty($username)) {
   if (!empty($password)) {
-    $host = 'localhost';
-    $dbusername = "root";
-    $dbpassword = "z3rgImba";
-    $dbname = "twitter-clone";
 
 
-    // Create connection
-
-    $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
-
+    
+    
     // If you fail to connect, show an error
     if (mysqli_connect_error()){
         die('Connect Error ('. mysqli_connect_errno() .')' . mysqli_connect_error());
     }
     else
     {
-        $sql = "INSERT INTO users (username, password) values ('$username','$password')";
+        //If successfully connected, do a thing
 
-        
+        $sql = "SELECT username FROM users WHERE username = '$username'";
+
+        $result = mysqli_query($conn,$sql);
+        $row = mysqli_fetch_array($result);
+
+        // If the query returns null
+        if (is_null($row)) {
+          echo "An error has occured. You were not found in the database";
+          header("Location: index.php?login=error");
+          exit();
+        } else {
+           //echo $row;
+        //var_dump($row);
+
+          
+
+        echo "Welcome! " , $_POST['username'];
+
+        }
+
+       
+
         if ($conn->query($sql)){
-            echo "New user has been created.";
+          //  echo "successful connection";
         }
         else{
             echo "Error: " . $sql . "<br>" . $conn->error;
@@ -56,6 +77,7 @@ else {
   die();
 }
 
+}
 ?>
 
 <!doctype html>
@@ -98,20 +120,27 @@ else {
 
   <div class="vertical-center">
   <section  class="col col-md-6 m-auto ">
-    <form id="login.php" class="form-signin">
+    <!-- Login Form -->
+    <form  class="form-signin" method="post">
        <i class="nes-mario m-4"></i>
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      
+      <!-- Username -->
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <input name="username" id="inputEmail" class="form-control" placeholder="Email address"  autofocus>
+
+      <!--Password -->
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" >
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <button class="nes-btn is-primary" type="submit">Sign in</button>
+      <button class="nes-btn is-primary" name="submit" type="submit">Sign in</button>
       <a class="nes-btn is-warning" href="create-account.php" >Create New Account</a>
+      <br>
+      <a class="nes-btn is-success mt-2 mb-2" href="timeline.php" >I'm already logged in!</a>
       <p class="mt-5 mb-3 text-muted">Created by Marcus Snow</p>
       <small>
       <p class="mt-5 mb-3 text-muted">Special Thanks:</p>

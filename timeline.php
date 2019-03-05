@@ -92,7 +92,7 @@ section.message-list {
   <!-- Left side Profile -->
   <div  class="col-3 border">
         <section class="nes-container with-title">
-        <p class="title"> Bulbasaur</p>
+        <p class="title"> <?php echo $_POST['username'] ?> </p>
         
         <i class="nes-bulbasaur mb-3"></i>
         <p> Literally #1 </p>

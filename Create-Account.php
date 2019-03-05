@@ -1,5 +1,6 @@
+<?php 
 
-
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -40,7 +41,7 @@
   </p>
   <section class="col col-md-6 m-auto  ">
 
-                <form action="connect.php" method="POST">
+                <form action="signup.php" method="POST">
                 <div class="card card-body">
                     <h3 class="text-center mb-4">Sign-up</h3>
                    <!-- <div class="alert alert-danger">

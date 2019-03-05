@@ -7,18 +7,14 @@ echo "Data has been pushed.";
 $username = filter_input(INPUT_POST, 'username');
 $password = filter_input(INPUT_POST, 'password');
 
+include_once 'dbh.php';
+
 if (!empty($username)) {
   if (!empty($password)) {
-    $host = 'localhost';
-    $dbusername = "root";
-    $dbpassword = "z3rgImba";
-    $dbname = "twitter-clone";
 
 
-    // Create connection
-
-    $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
-
+    
+    
     // If you fail to connect, show an error
     if (mysqli_connect_error()){
         die('Connect Error ('. mysqli_connect_errno() .')' . mysqli_connect_error());
