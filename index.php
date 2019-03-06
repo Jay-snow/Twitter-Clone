@@ -4,80 +4,18 @@
   //Create connection
   //  $link = mysql_
 
+session_start();
 
-
-
-
-
-
-
-
-if (isset($_POST['submit']))
+//Check to see if user is logged in. If they are, redirect them to the timeline.
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 {
-
-  include_once 'dbh.php';
-  $username = filter_input(INPUT_POST, 'username');
-$password = filter_input(INPUT_POST, 'password');
-
-if (!empty($username)) {
-  if (!empty($password)) {
-
-
-    
-    
-    // If you fail to connect, show an error
-    if (mysqli_connect_error()){
-        die('Connect Error ('. mysqli_connect_errno() .')' . mysqli_connect_error());
-    }
-    else
-    {
-        //If successfully connected, do a thing
-
-        $sql = "SELECT username FROM users WHERE username = '$username'";
-
-        $result = mysqli_query($conn,$sql);
-        $row = mysqli_fetch_array($result);
-
-        // If the query returns null
-        if (is_null($row)) {
-          echo "An error has occured. You were not found in the database";
-          header("Location: index.php?login=error");
-          exit();
-        } else {
-           //echo $row;
-        //var_dump($row);
-
-          
-
-        echo "Welcome! " , $_POST['username'];
-
-        }
-
-       
-
-        if ($conn->query($sql)){
-          //  echo "successful connection";
-        }
-        else{
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-        $conn->close();
-
-    }
-
-
-  }
-  else {
-    echo "Password should not be empty";
-    die();
-  }
-} 
-else {
-  echo "Username should not be empty";
-  die();
+  header("Location: timeline.php");
+ 
+} else {
+  
 }
 
-}
+
 ?>
 
 <!doctype html>
@@ -100,19 +38,8 @@ else {
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
-    <style>
-    font-family:  { 'Press Start 2P', cursive;   }
+  <link href="./css/styles.css" rel="stylesheet">
 
-    .vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
-
-  display: flex;
-  align-items: center;
-    }
-
-
-     </style>
   </head>
 
   <body class="text-center">
@@ -121,7 +48,7 @@ else {
   <div class="vertical-center">
   <section  class="col col-md-6 m-auto ">
     <!-- Login Form -->
-    <form  class="form-signin" method="post">
+    <form  action="scripts/signin.php" class="form-signin" method="post">
        <i class="nes-mario m-4"></i>
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       
@@ -137,10 +64,12 @@ else {
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
+
+      <!-- Buttons -->
       <button class="nes-btn is-primary" name="submit" type="submit">Sign in</button>
       <a class="nes-btn is-warning" href="create-account.php" >Create New Account</a>
-      <br>
-      <a class="nes-btn is-success mt-2 mb-2" href="timeline.php" >I'm already logged in!</a>
+
+      <!-- Credits -->
       <p class="mt-5 mb-3 text-muted">Created by Marcus Snow</p>
       <small>
       <p class="mt-5 mb-3 text-muted">Special Thanks:</p>
