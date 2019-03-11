@@ -21,7 +21,11 @@ if (!empty($username)) {
     }
     else
     {
-        $sql = "INSERT INTO users (username, password) values ('$username','$password')";
+
+      $passwordHash = password_hash('password', PASSWORD_DEFAULT);
+
+
+        $sql = "INSERT INTO users (username, password) values ('$username','$passwordHash')";
         if ($conn->query($sql)){
             echo "New user has been created.";
         }

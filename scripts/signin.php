@@ -20,32 +20,44 @@ if (!empty($username)) {
     else
     {
         //If successfully connected, do a thing
-        $sql = "SELECT username FROM users WHERE username = '$username'";
-
+        $sql = "SELECT * FROM users WHERE username = '$username'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_array($result);
 
+
+          var_dump($row['username']);
+          var_dump($row['password']);
+          echo $password;
         // If the query returns null
-        if (is_null($row)) {
-          echo "An error has occured. You were not found in the database";
-          header("Location: index.php?login=error");
-          exit();
+        if (isset($row['username'])  ) {
+          
+
+          if ($row['password'] == $password) {
+
+            $_SESSION["username"] = $username;
+          $_SESSION["loggedin"] = true;
+          
+
+          echo "Welcome! " , $_SESSION['username'];
+          header("Location: ../timeline.php");
+          var_dump($_SESSION);
+
+           
+          }
+
+
         } else {
            //echo $row;
         //var_dump($row);
 
-        $_SESSION["username"] = $username;
-        $_SESSION["loggedin"] = true;
-         
-
-        echo "Welcome! " , $_SESSION['username'];
-        header("Location: ../timeline.php");
-        var_dump($_SESSION);
-
+          
+          echo "An error has occured. You were not found in the database";
+          header("Location: ../index.php?login=NameFound");
+          exit();
         }
 
-       
-
+       //Debugging code, might remove soon.
+        /*
         if ($conn->query($sql)){
           //  echo "successful connection";
         }
@@ -53,7 +65,7 @@ if (!empty($username)) {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
         $conn->close();
-
+        */
     }
 
 

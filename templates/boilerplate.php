@@ -30,8 +30,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="The 8-bit social media platform nobody asked for!">
+    <meta name="author" content="Marcus Snow">
     <link rel="icon" href="../../../../favicon.ico">
     <!-- latest -->
 
