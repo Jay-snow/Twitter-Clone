@@ -22,7 +22,7 @@ if (!empty($username)) {
     else
     {
 
-      $passwordHash = password_hash('password', PASSWORD_DEFAULT);
+      $passwordHash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
 
         $sql = "INSERT INTO users (username, password) values ('$username','$passwordHash')";
