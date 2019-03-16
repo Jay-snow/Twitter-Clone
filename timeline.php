@@ -3,7 +3,8 @@
 
   session_start();
 
-  //var_dump($_SESSION);
+  
+
 
 ?>
 
@@ -46,7 +47,7 @@
 <!-- Button trigger modal -->
 
 
-
+          
           <button type="button" class="nes-btn is-primary" data-toggle="modal" data-target="#writePost" href="#">Write Post</button>
         </nav>
       </div>
@@ -59,7 +60,7 @@
       <!-- User Profile -->
       <div  class="col-3 border">
             <section class="nes-container with-title">
-            <p class="title"> <?php echo $_SESSION['username'] ?> </p>
+            <p class="title"> <?php echo $_SESSION['profileName'] ?> </p>
             
             <i class="nes-bulbasaur mb-3"></i>
             <p> Literally #1 </p>
@@ -116,9 +117,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+  <!-- TODO: UNCOMMENT THIS WHEN PREPARING TO AJAX CALLS --> 
+      <form method="POST" id="postForm" action="./scripts/newPost.php"> 
       <div class="modal-body">
       <label for="textarea_field">Say what's in your <i class="nes-icon heart"></i> </label>
-          <textarea id="textarea_field" maxlength="160" class="nes-textarea"></textarea>
+          <textarea name="textarea_field" id="textarea_field" maxlength="160" class="nes-textarea"></textarea>
 
         
       </div>
@@ -130,7 +133,9 @@
       
         <p class="text-secondary mr-auto" id="postTextCounter" > 0/160 </p>
         <button type="button" class="nes-btn is-warning" data-dismiss="modal">Close</button>
-        <button type="button" onclick="newPost();" data-dismiss="modal" class="nes-btn is-success">Post!</button>
+        
+        <button type="button" id="newPost"  data-dismiss="modal" type="submit" class="nes-btn is-success">Post!</button>
+        </form> 
       
       </div>
     </div>
@@ -141,8 +146,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   
-  <script src="./scripts/ajaxLogout.js"> </script>
+  <script src="./scripts/helper.js"> </script>
+  <script>
+    
 
+    
+    
+  </script>
 
     <style>
     /*  If the textbox field changes. Count the number of characters, and update the character counter. */

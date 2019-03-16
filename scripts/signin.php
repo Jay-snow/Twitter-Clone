@@ -34,23 +34,19 @@ if (!empty($username)) {
         // If the query returns null
         if (isset($row['username'])  ) {
           
-          
-
-          
            $passwordHash = $row['password'];
 
-
-          
 
           if ( password_verify($_POST['password'], $passwordHash) ) {
 
             
 
-            $_SESSION["username"] = $username;
+            $_SESSION["profileName"] = $username;
+            global $username;
           $_SESSION["loggedin"] = true;
           
 
-          echo "Welcome! " , $_SESSION['username'];
+          echo "Welcome! " , $_SESSION['profileName'];
           header("Location: ../timeline.php");
           var_dump($_SESSION);
 

@@ -52,7 +52,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
   <div class="vertical-center">
   <section  class="col col-md-6 m-auto ">
     <!-- Login Form -->
-    <form  action="scripts/signin.php" class="form-signin" method="post">
+    <form  action="scripts/signin.php" class="form-signin" method="POST">
        <i class="nes-mario m-4"></i>
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       
