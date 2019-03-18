@@ -1,6 +1,6 @@
 /*Helper submit for modal submit */
 const submitButton = document.getElementById("newPost");
-submitButton.addEventListener('click', formSubmit);
+//submitButton.addEventListener('click', formSubmit);
 const postForm = document.getElementById("postForm");
 
 postForm.addEventListener("submit", function(e) {
@@ -11,11 +11,12 @@ postForm.addEventListener("submit", function(e) {
 
 
 
-
+/*
   function formSubmit(){
       postForm.submit();
+      return false;
       
-  }
+  }*/
 
     
 //LOGOUT FUNCTION
@@ -136,6 +137,8 @@ function newPost() {
     //This script should pass post data into database
     httpRequest.open('POST', './scripts/newPost.php');
     httpRequest.send();
+    
+    
   }
     //Checks is response was recieved OK, if not, throw an error.
     //In case it can't reach the server, show a description why with try catch
@@ -145,8 +148,7 @@ function newPost() {
           if (httpRequest.status === 200) {
             console.log("The request was successful!");
             newPost();
-            postForm.preventDefault();
-
+            alert("TEST2");
 
            
 
