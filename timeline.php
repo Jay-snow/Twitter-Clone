@@ -118,7 +118,7 @@
         </button>
       </div>
   <!-- TODO: UNCOMMENT THIS WHEN PREPARING TO AJAX CALLS --> 
-      <form method="POST" id="postForm" action="./scripts/newPost.php"> 
+      <form method="POST" id="postForm"> 
       <div class="modal-body">
       <label for="textarea_field">Say what's in your <i class="nes-icon heart"></i> </label>
           <textarea name="textarea_field" id="textarea_field" maxlength="160" class="nes-textarea"></textarea>
@@ -134,7 +134,7 @@
         <p class="text-secondary mr-auto" id="postTextCounter" > 0/160 </p>
         <button type="button" class="nes-btn is-warning" data-dismiss="modal">Close</button>
         
-        <button type="button" id="newPost"  data-dismiss="modal" type="submit" class="nes-btn is-success">Post!</button>
+        <button type="button" id="newPost"  data-dismiss="modal"  class="nes-btn is-success">Post!</button>
         </form> 
       
       </div>
