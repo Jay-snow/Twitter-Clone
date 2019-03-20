@@ -1,24 +1,5 @@
-/*Helper submit for modal submit */
-const submitButton = document.getElementById("newPost");
-//submitButton.addEventListener('click', formSubmit);
-const postForm = document.getElementById("postForm");
+//This file is mostly ajax.
 
-postForm.addEventListener("submit", function(e) {
-  if(!isValid) {
-    e.preventDefault();
-  }
-});
-
-
-
-/*
-  function formSubmit(){
-      postForm.submit();
-      return false;
-      
-  }*/
-
-    
 //LOGOUT FUNCTION
 //AJAX call to request PHP logout. I -think- this is slightly faster than directing to the PHP file, because it says 1 page from being loaded.
 (function() {
