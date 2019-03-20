@@ -6,7 +6,7 @@ session_start();
 
 $postText = $_POST['textarea_field'];
 $postUser = $_SESSION['profileName'];
-$postDate = "3/16/2019";
+$postDate = $_SESSION['currentDate'];
 
 include_once 'dbh.php';
 
@@ -17,10 +17,11 @@ include_once 'dbh.php';
     }
     else
     {
-        $sql = "INSERT INTO posts (postText, postUser, postDate) values ('$postText','$postUser', $postDate)";
+        $sql = "INSERT INTO posts (postText, postUser, postDate) values ('$postText','$postUser', '$postDate')";
         if ($conn->query($sql)){
             echo "Post data has been saved.";
-  
+            
+            header("Location: ../timeline.php");
         }
         else{
             echo "Error: " . $sql . "<br>" . $conn->error;
@@ -29,5 +30,8 @@ include_once 'dbh.php';
 
     }
 
+    var_dump($postUser);
+    var_dump($postText);
+    echo date("y-m-d");
 
 ?>
