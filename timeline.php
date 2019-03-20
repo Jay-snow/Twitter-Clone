@@ -1,10 +1,8 @@
 <?php
-
-
   session_start();
-
-  
-
+   
+  $_SESSION['currentDate'] = date('d-M');
+  include_once 'scripts/dbh.php';
 
 ?>
 
@@ -66,6 +64,7 @@
             <p> Literally #1 </p>
             <p> Posts: 321894  </p>
             <p> Likes: 0 </p>
+           <?php  echo date('d-M'); ?>
 
           </section>    
     </div>
@@ -78,6 +77,78 @@
 
                 <section id="message-list" class="message-list">
 
+                  <?php
+
+
+                     if (mysqli_connect_error()){
+    die('Connect Error ('. mysqli_connect_errno() .')' . mysqli_connect_error());
+}
+else
+{
+
+
+    $sql = "SELECT * FROM posts ORDER BY postID DESC"; 
+    $result = mysqli_query($conn,$sql);
+
+    while ($row = mysqli_fetch_array($result))
+    {
+
+
+      if ( $row['postID'] % 2 == 0 ) {
+
+        
+      echo '<section class="message -left">',
+      '<i class="nes-bulbasaur icon-rotate icon-flipped"></i>',
+      '<div class="nes-balloon from-left">',
+      ' <p class=" mr-auto text-left"> <small class="text-primary">',
+      '@', $row['postUser'], ' ',
+      '<span class="text-muted">', $row['postDate'] , '</span></small> </p>',
+      '<p>', $row['postText'], '</p>',
+      '</div> </section> ';
+
+      } else {
+
+        
+      echo '<section class="message -right">',
+      
+      '<div class="nes-balloon from-right">',
+      ' <p class=" mr-auto text-left"> <small class="text-primary">',
+      '@', $row['postUser'], ' ',
+      '<span class="text-muted">', $row['postDate'] , '</span></small> </p>',
+      '<p>', $row['postText'], '</p>',
+      '</div>',
+      '<i class="nes-bulbasaur "></i>',
+      
+      '</section> ';
+
+      }
+
+
+
+
+
+      /*  $row['postUser'], ": ", $row['postText'], '</p>'; */
+
+/*
+      <section id="message-list" class="message-list">
+      <section class="message -left">
+          <i class="nes-bulbasaur icon-rotate icon-flipped"></i>
+          <!-- Balloon -->
+          <div class="nes-balloon from-left">
+          <p class=" mr-auto text-left"> <small class="text-primary"> ` + ` Ness ` + ` <span class="text-muted"> @Charmander1996 </span></small> </p>
+          <p> ` + messages[i] + ` </p> 
+          </div>
+      </section>*/
+
+
+    }
+
+    $conn->close();
+
+}
+
+
+                  ?>
 
                 </section>
             </section>
@@ -118,7 +189,7 @@
         </button>
       </div>
   <!-- TODO: UNCOMMENT THIS WHEN PREPARING TO AJAX CALLS --> 
-      <form method="POST" id="postForm"> 
+      <form method="POST" id="postForm" action="scripts/newPost.php"> 
       <div class="modal-body">
       <label for="textarea_field">Say what's in your <i class="nes-icon heart"></i> </label>
           <textarea name="textarea_field" id="textarea_field" maxlength="160" class="nes-textarea"></textarea>
@@ -134,7 +205,7 @@
         <p class="text-secondary mr-auto" id="postTextCounter" > 0/160 </p>
         <button type="button" class="nes-btn is-warning" data-dismiss="modal">Close</button>
         
-        <button type="button" id="newPost"  data-dismiss="modal"  class="nes-btn is-success">Post!</button>
+        <input type="submit" id="newPost"   lass="btn btn-lg btn-primary btn-block" value="Post!" >
         </form> 
       
       </div>
@@ -147,17 +218,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   
   <script src="./scripts/helper.js"> </script>
-  <script>
-    
-
-    
-    
-  </script>
-
-    <style>
-    /*  If the textbox field changes. Count the number of characters, and update the character counter. */
-    
-    </style>
 
   </body>
 </html>
