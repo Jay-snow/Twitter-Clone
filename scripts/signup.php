@@ -2,10 +2,13 @@
 
 echo $_POST["username"];
 echo $_POST["password"];
+
 echo "Data has been pushed.";
 
 $username = filter_input(INPUT_POST, 'username');
 $password = filter_input(INPUT_POST, 'password');
+$fname = $_POST['fname'];
+$avatar = $_POST['avatar'];
 
 include_once 'dbh.php';
 
@@ -25,7 +28,7 @@ if (!empty($username)) {
       $passwordHash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
 
-        $sql = "INSERT INTO users (username, password) values ('$username','$passwordHash')";
+        $sql = "INSERT INTO users (username, password, fname, avatar) values ('$username','$passwordHash', '$fname', '$avatar')";
         if ($conn->query($sql)){
             echo "New user has been created.";
         }

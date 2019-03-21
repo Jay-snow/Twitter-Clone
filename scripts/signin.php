@@ -25,9 +25,9 @@ if (!empty($username)) {
         $row = mysqli_fetch_array($result);
       //  $passwordHash = password_hash('password', PASSWORD_DEFAULT);
 
-       //   var_dump($row['username']);
-       //   var_dump($row['password']);
-       //   echo $password;
+         var_dump($row['username']);
+         var_dump($row['password']);
+         echo $password;
 
 
           
@@ -35,13 +35,12 @@ if (!empty($username)) {
         if (isset($row['username'])  ) {
           
            $passwordHash = $row['password'];
-
-
           if ( password_verify($_POST['password'], $passwordHash) ) {
 
             
 
             $_SESSION["profileName"] = $username;
+            
             global $username;
           $_SESSION["loggedin"] = true;
           
