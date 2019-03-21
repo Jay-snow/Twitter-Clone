@@ -4,6 +4,8 @@
   //Create connection
   //  $link = mysql_
 
+
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 session_start();
 
 //Check to see if user is logged in. If they are, redirect them to the timeline.
@@ -38,7 +40,13 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 
     <title>Login Page</title>
 
-    <!-- Bootstrap core CSS -->
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="./css/nes.min.css" rel="stylesheet" />
+<link href="./css/press-start-font.css" rel="stylesheet">
+<link href="./css/styles.css" rel="stylesheet">
     
 
 
@@ -48,12 +56,28 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 
   <body class="text-center">
   <div class="container">
+  <div class="row">
+  <div class="col-12">
+<h1> OctoBit </h1>  <i class="nes-mario m-4"></i>
+  </div>
+  
 
-  <div class="vertical-center">
-  <section  class="col col-md-6 m-auto ">
+  <section class="col col-md-5">
+
+  <div class="nes-container is-dark with-title">
+  <p class="title">Welcome to Octo Bit?</p>
+  <p>OctoBit is a twitter-clone I created to teach myself PHP.</p>
+  <p>The amazing CSS framework was created by <a href="https://nostalgic-css.github.io/NES.css/">B.C.Rikko, creator of NES.CSS</a>. You should check it out! </p>
+  <p> Used Tools: <a href="https://nostalgic-css.github.io/NES.css/">NES.CSS</a>, Javascript, PHP, MySQL, Bootstrap 4  </p>
+</div>
+
+
+  </section>
+
+  <section  class="col col-md-5 ">
     <!-- Login Form -->
     <form  action="scripts/signin.php" class="form-signin" method="POST">
-       <i class="nes-mario m-4"></i>
+      
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       
       <!-- Username -->
@@ -74,7 +98,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
       <a class="nes-btn is-warning" href="create-account.php" >Create New Account</a>
 
       <!-- Credits -->
-      <p class="mt-5 mb-3 text-muted">Created by Marcus Snow</p>
+      <!-- <p class="mt-5 mb-3 text-muted">Created by Marcus Snow</p>
       <small>
       <p class="mt-5 mb-3 text-muted">Special Thanks:</p>
         <ul>
@@ -82,12 +106,12 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
             <li> All the stackedoverflow posts </li>
 
         </ul>
-      </small>
+      </small> -->
     </form>
   </section>
+  
+
   </div>
-
-
   </div>
   </body>
 </html>
