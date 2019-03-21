@@ -117,7 +117,7 @@ else
       '<span class="text-muted">', $row['postDate'] , '</span></small> </p>',
       '<p>', $row['postText'], '</p>',
       '</div>',
-      '<i class="nes-bulbasaur "></i>',
+      '<i class="', $row[''] ,' "></i>',
       
       '</section> ';
 

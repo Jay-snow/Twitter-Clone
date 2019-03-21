@@ -21,7 +21,7 @@
   <link href="./css/styles.css" rel="stylesheet">
   </head>
 
-  <body class="text-center">
+  <body>
   <div class="container">
     <div class="row">
     <div class="vertical-center">
@@ -42,19 +42,29 @@
               -->
           <fieldset>
               <div class="form-group has-error">
-                  <input class="form-control input-lg" placeholder="Enter desired username here" name="username" type="text">
+                  Username <input class="form-control input-lg d-inline"  name="username" type="text">
+              </div>
+              <div class="form-group has-error">
+                  First Name <input class="form-control input-lg d-inline"  name="fname" type="text">
+              </div>
+              <div class="form-group has-error">
+                  Avatar: <select name="avatar">
+                    <option value="nes-bulbasaur">Bulbasaur</option>
+                    <option value="nes-charmander">Charmander</option>
+                    <option value="nes-squirtle">Squirtle</option>
+                  </select>
               </div>
               <div class="form-group has-success">
-                  <input class="form-control input-lg" placeholder="Password" name="password" value="" type="password">
+                Password  <input class="form-control input-lg" name="password" value="" type="password">
               </div>
               <div class="form-group has-success">
-                  <input class="form-control input-lg" placeholder="Confirm Password" name="confirm-password" value="" type="password">
+                Confirm Password  <input class="form-control input-lg"  name="confirm-password" value="" type="password">
               </div>
-              <div class="checkbox">
+              <!-- <div class="checkbox">
                   <label class="small">
                       <input name="terms" type="checkbox">I have read and agree to the <a href="#">terms of service</a>
                   </label>
-              </div>
+              </div> -->
               <input class="btn btn-lg btn-primary btn-block" value="Sign Me Up" type="submit">
           </fieldset>
         </div>
