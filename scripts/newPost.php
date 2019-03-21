@@ -7,6 +7,11 @@ session_start();
 $postText = $_POST['textarea_field'];
 $postUser = $_SESSION['profileName'];
 $postDate = $_SESSION['currentDate'];
+$postAvatar = $_SESSION['avatar'];
+
+$postTextFilter = filter_var($postText,FILTER_SANITIZE_STRING);
+
+$postText = $postTextFilter;
 
 include_once 'dbh.php';
 
@@ -17,7 +22,9 @@ include_once 'dbh.php';
     }
     else
     {
-        $sql = "INSERT INTO posts (postText, postUser, postDate) values ('$postText','$postUser', '$postDate')";
+
+
+        $sql = "INSERT INTO posts (postText, postUser, postDate, postAvatar) values ('$postText','$postUser', '$postDate', '$postAvatar')";
         if ($conn->query($sql)){
             echo "Post data has been saved.";
             

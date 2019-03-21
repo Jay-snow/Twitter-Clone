@@ -4,6 +4,8 @@
   $_SESSION['currentDate'] = date('d-M');
   include_once 'scripts/dbh.php';
 
+  var_dump($_SESSION['avatar']);
+
 ?>
 
 <!doctype html>
@@ -60,7 +62,7 @@
             <section class="nes-container with-title">
             <p class="title"> <?php echo $_SESSION['profileName'] ?> </p>
             
-            <i class="nes-bulbasaur mb-3"></i>
+            <?php echo '<i class=', $_SESSION['avatar'] ,' mb-3></i>' ?>
             <p> Literally #1 </p>
             <p> Posts: 321894  </p>
             <p> Likes: 0 </p>
@@ -98,7 +100,7 @@ else
 
         
       echo '<section class="message -left">',
-      '<i class="nes-bulbasaur icon-rotate icon-flipped"></i>',
+      '<i class="', $row['postAvatar'] ,' icon-rotate icon-flipped"></i>',
       '<div class="nes-balloon from-left">',
       ' <p class=" mr-auto text-left"> <small class="text-primary">',
       '@', $row['postUser'], ' ',
@@ -117,7 +119,7 @@ else
       '<span class="text-muted">', $row['postDate'] , '</span></small> </p>',
       '<p>', $row['postText'], '</p>',
       '</div>',
-      '<i class="', $row[''] ,' "></i>',
+      '<i class="', $row['postAvatar'] ,' "></i>',
       
       '</section> ';
 

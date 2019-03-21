@@ -8,7 +8,7 @@ echo "Data has been pushed.";
 $username = filter_input(INPUT_POST, 'username');
 $password = filter_input(INPUT_POST, 'password');
 $fname = $_POST['fname'];
-$avatar = $_POST['avatar'];
+$avatar = $_SESSION['avatar'];
 
 include_once 'dbh.php';
 

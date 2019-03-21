@@ -40,6 +40,7 @@ if (!empty($username)) {
             
 
             $_SESSION["profileName"] = $username;
+            $_SESSION["avatar"] = $row['avatar'];
             
             global $username;
           $_SESSION["loggedin"] = true;
