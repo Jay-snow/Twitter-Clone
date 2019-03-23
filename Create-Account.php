@@ -15,8 +15,8 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Custom styles for this template -->
-        <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <link href="./css/styles.css" rel="stylesheet">
   </head>
@@ -33,7 +33,7 @@
 
     <!-- Create Account Form -->
     <section class="col col-md-6 m-auto  ">
-      <form action="scripts/signup.php" method="POST">
+      <form id="accountForm" action="scripts/signup.php" method="POST">
         <div class="card card-body">
           <h3 class="text-center mb-4">Sign-up</h3>
           <!-- <div class="alert alert-danger">
@@ -42,10 +42,10 @@
               -->
           <fieldset>
               <div class="form-group has-error">
-                  Username <input class="form-control input-lg d-inline"  name="username" type="text">
+                  Username <input id="username" class="form-control input-lg d-inline"  name="username" type="text" required>
               </div>
               <div class="form-group has-error">
-                  First Name <input class="form-control input-lg d-inline"  name="fname" type="text">
+                  First Name <small>(optional)</small> <input class="form-control input-lg d-inline"  name="fname" type="text">
               </div>
               <div class="form-group has-error">
                   Avatar: <select name="avatar">
@@ -55,17 +55,17 @@
                   </select>
               </div>
               <div class="form-group has-success">
-                Password  <input class="form-control input-lg" name="password" value="" type="password">
+                Password  <input id="passwordInput" class="form-control input-lg" name="password" value="" type="password" required>
               </div>
               <div class="form-group has-success">
-                Confirm Password  <input class="form-control input-lg"  name="confirm-password" value="" type="password">
+                Confirm Password  <input id="passwordConfirm" class="form-control input-lg"  name="confirm-password" value="" type="password">
               </div>
               <!-- <div class="checkbox">
                   <label class="small">
                       <input name="terms" type="checkbox">I have read and agree to the <a href="#">terms of service</a>
                   </label>
               </div> -->
-              <input class="btn btn-lg btn-primary btn-block" value="Sign Me Up" type="submit">
+              <input id="makeaccount" onclick="validateSubmit();" class="btn btn-lg btn-primary btn-block" value="Sign Me Up" >
           </fieldset>
         </div>
       </form>  
@@ -76,5 +76,36 @@
 
     </div>
   </div>
+  <script>
+    var submitButton = document.getElementById("makeaccount");
+    var passwordInput = document.getElementById("passwordInput");
+    var passwordConfirm = document.getElementById("passwordConfirm");
+    var accountForm = document.getElementById("accountForm");
+
+  //  submitButton.addEventListener('submit',validateSubmit);
+
+    function validateSubmit() {
+
+      if (passwordInput.value === passwordConfirm.value)
+      {
+        alert("Your passwords match!");
+        
+
+        if (document.getElementById("username") === "" ){
+          //accountForm.submit();
+        } else {
+          alert("You need a username");
+        }
+
+
+
+      } else {
+        alert("your passwords don't match");
+
+      }
+
+    }
+  </script>
+
   </body>
 </html>
