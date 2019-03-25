@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 if (isset($_POST['submit']))
 {
 
@@ -48,7 +50,7 @@ if (!empty($username)) {
 
           echo "Welcome! " , $_SESSION['profileName'];
           header("Location: ../timeline.php");
-          var_dump($_SESSION);
+          exit();
 
            
           }

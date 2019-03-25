@@ -65,7 +65,7 @@
                       <input name="terms" type="checkbox">I have read and agree to the <a href="#">terms of service</a>
                   </label>
               </div> -->
-              <input id="makeaccount" onclick="validateSubmit();" class="btn btn-lg btn-primary btn-block" value="Sign Me Up" >
+              <input id="makeaccount"  class="btn btn-lg btn-primary btn-block" value="Sign Me Up" >
           </fieldset>
         </div>
       </form>  
@@ -81,8 +81,9 @@
     var passwordInput = document.getElementById("passwordInput");
     var passwordConfirm = document.getElementById("passwordConfirm");
     var accountForm = document.getElementById("accountForm");
+    const username = document.getElementById("username");
 
-  //  submitButton.addEventListener('submit',validateSubmit);
+    submitButton.addEventListener('click',validateSubmit);
 
     function validateSubmit() {
 
@@ -91,8 +92,9 @@
         alert("Your passwords match!");
         
 
-        if (document.getElementById("username") === "" ){
-          //accountForm.submit();
+        if (username.value !== "" ){
+          accountForm.submit();
+          
         } else {
           alert("You need a username");
         }

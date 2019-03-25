@@ -27,8 +27,8 @@ include_once 'dbh.php';
         $sql = "INSERT INTO posts (postText, postUser, postDate, postAvatar) values ('$postText','$postUser', '$postDate', '$postAvatar')";
         if ($conn->query($sql)){
             echo "Post data has been saved.";
-            
             header("Location: ../timeline.php");
+            exit();
         }
         else{
             echo "Error: " . $sql . "<br>" . $conn->error;
