@@ -1,4 +1,6 @@
 <?php 
+  $title = 'Create Your Account';
+  require 'header.php';
 
 ?>
 <!doctype html>

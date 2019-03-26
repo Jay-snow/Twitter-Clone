@@ -27,6 +27,7 @@ if (!empty($username)) {
         $sql = "INSERT INTO users (username, password, fname, avatar) values ('$username','$passwordHash', '$fname', '$avatar')";
         if ($conn->query($sql)){
           //  echo "New user has been created.";
+          echo "<script> setTimeout(function() {window.location.replace('http://marcussnow.dev/twitter-clone/timeline.php')}, 5000) </script>";
           header("refresh:5; url= ../index.php");
 
         }

@@ -2,7 +2,6 @@
 
 <?php
 
-session_start();
 
 $postText = $_POST['textarea_field'];
 $postUser = $_SESSION['profileName'];
@@ -27,7 +26,7 @@ include_once 'dbh.php';
         $sql = "INSERT INTO posts (postText, postUser, postDate, postAvatar) values ('$postText','$postUser', '$postDate', '$postAvatar')";
         if ($conn->query($sql)){
             echo "Post data has been saved.";
-            header("Location: ../timeline.php");
+            echo "<script> window.location.replace('/twitter-clone/timeline.php'); </script>";
             exit();
         }
         else{

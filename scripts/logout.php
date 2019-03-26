@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 session_destroy();
-header("Location: /index.php")
+echo "<script> window.location.replace('http://marcussnow.dev/twitter-clone/";
 ?>

@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 
 if (isset($_POST['submit']))
 {
@@ -27,9 +26,9 @@ if (!empty($username)) {
         $row = mysqli_fetch_array($result);
       //  $passwordHash = password_hash('password', PASSWORD_DEFAULT);
 
-         var_dump($row['username']);
-         var_dump($row['password']);
-         echo $password;
+        //  var_dump($row['username']);
+        //  var_dump($row['password']);
+        //  echo $password;
 
 
           
@@ -49,10 +48,16 @@ if (!empty($username)) {
           
 
           echo "Welcome! " , $_SESSION['profileName'];
-          header("Location: ../timeline.php");
-          exit();
+          echo "<script> window.location.replace('/twitter-clone/timeline.php') </script>";
 
            
+          } else {
+            $_SESSION['passFail'] = true;
+            $passFail = $_SESSION['passFail'];
+            global $passFail;
+            
+            echo "<script> window.location.replace('/twitter-clone/index.php?LoginError') </script>";
+            
           }
 
 
@@ -61,9 +66,8 @@ if (!empty($username)) {
         //var_dump($row);
 
           
-          echo "An error has occured. You were not found in the database";
-          header("Location: ../index.php?login=NameFound");
-          exit();
+          echo "<script> alert('An error has occured. You were not found in the database')</script>";
+
         }
 
        //Debugging code, might remove soon.
