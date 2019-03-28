@@ -46,7 +46,7 @@
             
             <?php echo '<i class=', $_SESSION['avatar'] ,' mb-3></i>' ?>
             <p> <?php echo $_SESSION['ftext']; ?> </p> 
-            <p> Posts: 321894  </p>
+            <p> Posts: 0  </p>
             <p> Likes: 0 </p>
            <?php  echo date('d-M'); ?>
 
@@ -191,7 +191,7 @@ else
         <p class="text-secondary mr-auto" id="postTextCounter" > 0/160 </p>
         <button type="button" class="nes-btn is-warning" data-dismiss="modal">Close</button>
         
-        <input type="submit" id="newPost"   lass="btn btn-lg btn-primary btn-block" value="Post!" >
+        <button type="submit" id="newPost"   class="nes-btn is-primary "  >Post! </button>
         </form> 
       
       </div>

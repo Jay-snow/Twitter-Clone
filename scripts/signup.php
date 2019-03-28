@@ -1,11 +1,14 @@
 
 <?php
 
+session_start();
 
 
 $username = filter_input(INPUT_POST, 'username');
 $password = filter_input(INPUT_POST, 'password');
-$fname = $_POST['fname'];
+$fname = filter_input(INPUT_POST, 'fname');
+$fnameFilter = filter_var($fname,FILTER_SANITIZE_STRING);
+$fname = $fnameFilter;
 $avatar = $_POST['avatar'];
 
 include_once 'dbh.php';

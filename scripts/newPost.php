@@ -2,6 +2,7 @@
 
 <?php
 
+session_start();
 
 $postText = $_POST['textarea_field'];
 $postUser = $_SESSION['profileName'];
