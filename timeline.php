@@ -40,9 +40,9 @@
     <div class="row">
 
       <!-- User Profile -->
-      <div  class="col-3 border">
+      <div  class="col-12 col-md-3 border">
             <section class="nes-container with-title">
-            <p class="title"> <?php echo $_SESSION['profileName'] ?> </p>
+            <p class="title"> <a href="./profile.php"> <?php echo $_SESSION['profileName'] ?></a> </p>
             
             <?php echo '<i class=', $_SESSION['avatar'] ,' mb-3></i>' ?>
             <p> Literally #1 </p>
@@ -54,7 +54,7 @@
     </div>
 
       <!-- Timeline -->
-        <section  class="col-6 border">
+        <section  class="col-12 col-md-6 border">
             
             <section class="nes-container with-title">
                 <h3 class="title">Timeline </h3>
@@ -82,13 +82,14 @@ else
 
         
       echo '<section class="message -left">',
-      '<i class="', $row['postAvatar'] ,' icon-rotate icon-flipped"></i>',
+     
       '<div class="nes-balloon from-left">',
       ' <p class=" mr-auto text-left"> <small class="text-primary">',
       '@', $row['postUser'], ' ',
       '<span class="text-muted">', $row['postDate'] , '</span></small> </p>',
       '<p>', $row['postText'], '</p>',
-      '</div> </section> ';
+      '</div> </section> ',
+      '<i class="', $row['postAvatar'] ,' icon-rotate icon-flipped"></i>';
 
       } else {
 
@@ -101,9 +102,10 @@ else
       '<span class="text-muted">', $row['postDate'] , '</span></small> </p>',
       '<p>', $row['postText'], '</p>',
       '</div>',
-      '<i class="', $row['postAvatar'] ,' "></i>',
       
-      '</section> ';
+      
+      '</section> ',
+      '<i class="', $row['postAvatar'] ,' ml-auto"></i>';
 
       }
 
@@ -140,7 +142,7 @@ else
         </section>
 
         <!-- Right Bar -->
-        <div  class="col-3 border">
+        <div  class="col-12 col-md-3 border">
             <div class="row">
                 
                 <!-- Advertisements apparently -->
