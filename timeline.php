@@ -7,7 +7,7 @@
   include_once 'scripts/dbh.php';
   
 
-  var_dump($_SESSION['avatar']);
+
 
 ?>
 
@@ -45,7 +45,7 @@
             <p class="title"> <a href="./profile.php"> <?php echo $_SESSION['profileName'] ?></a> </p>
             
             <?php echo '<i class=', $_SESSION['avatar'] ,' mb-3></i>' ?>
-            <p> Literally #1 </p>
+            <p> <?php echo $_SESSION['ftext']; ?> </p> 
             <p> Posts: 321894  </p>
             <p> Likes: 0 </p>
            <?php  echo date('d-M'); ?>

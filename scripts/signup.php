@@ -31,9 +31,10 @@ if (!empty($username)) {
           //  echo "New user has been created.";
           $_SESSION["profileName"] = $username;
           $_SESSION["avatar"] = $avatar;
+          $_SESSION["ftext"] = $fname;
           $_SESSION["loggedin"] = true;
 
-          echo "<script> setTimeout(function() {window.location.replace('/twitter-clone/index.php')}, 5000000) </script>";
+          echo "<script> setTimeout(function() {window.location.replace('/twitter-clone/index.php')}, 5000) </script>";
 
         }
         else{

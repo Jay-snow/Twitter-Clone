@@ -48,8 +48,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
       <h1 class="h3 mb-3 font-weight-normal"># Login</h1>
       
       <!-- Username -->
-      <label for="inputEmail" class="sr-only">Username</label>
-      <input name="username" id="inputEmail" class="form-control" placeholder="Username"  autofocus>
+      <label for="inputEmail" class="sr-only"  >Username</label>
+      <input name="username" id="inputEmail" class="form-control" required placeholder="Username"  autofocus>
 
       <!--Password -->
       <label for="inputPassword" class="sr-only">Password</label>
