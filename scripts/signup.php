@@ -1,6 +1,8 @@
 
 <?php
 
+
+
 $username = filter_input(INPUT_POST, 'username');
 $password = filter_input(INPUT_POST, 'password');
 $fname = $_POST['fname'];
@@ -27,8 +29,11 @@ if (!empty($username)) {
         $sql = "INSERT INTO users (username, password, fname, avatar) values ('$username','$passwordHash', '$fname', '$avatar')";
         if ($conn->query($sql)){
           //  echo "New user has been created.";
-          echo "<script> setTimeout(function() {window.location.replace('http://marcussnow.dev/twitter-clone/timeline.php')}, 5000) </script>";
-          header("refresh:5; url= ../index.php");
+          $_SESSION["profileName"] = $username;
+          $_SESSION["avatar"] = $avatar;
+          $_SESSION["loggedin"] = true;
+
+          echo "<script> setTimeout(function() {window.location.replace('/twitter-clone/index.php')}, 5000000) </script>";
 
         }
         else{
@@ -56,11 +61,14 @@ else {
 <html lang="en">
   <head>
 
-   <!-- Custom styles for this template -->
-   <link href="../css/nes.min.css" rel="stylesheet" />
+  
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/nes.min.css" rel="stylesheet" />
   <link href="../css/press-start-font.css" rel="stylesheet">
   <link href="../css/styles.css" rel="stylesheet">
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -85,6 +93,7 @@ else {
 
   <div >
   <section  class="col col-md-6 m-auto text-center ">
+    <p>   <i class="nes-icon is-large like"></i> </p>
    <h1> Username created!  </h1>
    <p> Hi <?php echo $_POST["username"]; ?>! Welcome to OctoBit! </p>
    <small> <a href="../index.php"> You will be redirected in 5 seconds. Or you can click here </a> </small>
