@@ -4,8 +4,9 @@
   
    
   $_SESSION['currentDate'] = date('d-M');
+
   include_once 'scripts/dbh.php';
-  
+  include 'scripts/addPosts.php';
 
 
 
@@ -46,7 +47,7 @@
             
             <?php echo '<i class=', $_SESSION['avatar'] ,' mb-3></i>' ?>
             <p> <?php echo $_SESSION['ftext']; ?> </p> 
-            <p> Posts: 0  </p>
+            <p>Posts: <?php echo $_SESSION['postCount']; ?> </p> 
             <p> Likes: 0 </p>
            <?php  echo date('d-M'); ?>
 

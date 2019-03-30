@@ -22,9 +22,10 @@ include_once 'dbh.php';
     }
     else
     {
-
+        
 
         $sql = "INSERT INTO posts (postText, postUser, postDate, postAvatar) values ('$postText','$postUser', '$postDate', '$postAvatar')";
+
         if ($conn->query($sql)){
             echo "Post data has been saved.";
             echo "<script> window.location.replace('/twitter-clone/timeline.php'); </script>";

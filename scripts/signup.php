@@ -29,12 +29,14 @@ if (!empty($username)) {
       $passwordHash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
 
-        $sql = "INSERT INTO users (username, password, fname, avatar) values ('$username','$passwordHash', '$fname', '$avatar')";
+        $sql = "INSERT INTO users (username, password, fname, avatar, postCount) values ('$username','$passwordHash', '$fname', '$avatar', 0)";
+
         if ($conn->query($sql)){
           //  echo "New user has been created.";
           $_SESSION["profileName"] = $username;
           $_SESSION["avatar"] = $avatar;
           $_SESSION["ftext"] = $fname;
+          $_SESSION["postCount"] = 0;
           $_SESSION["loggedin"] = true;
 
           echo "<script> setTimeout(function() {window.location.replace('/twitter-clone/index.php')}, 5000) </script>";
