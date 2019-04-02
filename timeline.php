@@ -39,10 +39,9 @@
             <p class="title"> <a href="./profile.php"> <?php echo $_SESSION['profileName'] ?></a> </p>
             
             <?php echo '<i class=', $_SESSION['avatar'] ,' mb-3></i>' ?>
-            <p> <?php echo $_SESSION['ftext']; ?> </p> 
+            <p> "<?php echo $_SESSION['ftext']; ?>" </p> 
             <p>Posts: <?php echo $_SESSION['postCount']; ?> </p> 
             <p> Likes: 0 </p>
-           <?php  echo date('d-M'); ?>
 
           </section>    
     </div>
@@ -141,8 +140,7 @@
                 
                 <!-- Advertisements apparently -->
                 <section class="col-12 border">
-                    Version Alpha
-                    Static HTML Template version! Huzzah!
+                    Welcome to OctoBit!
                 </section>
 
                 <!-- Who to follow -->
