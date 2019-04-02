@@ -4,12 +4,12 @@
   //Create connection
   //  $link = mysql_
 
-  $title = 'Your Title';
+  $title = 'Profile';
   require 'header.php';
 
 ?>
 
-  <body class="text-center">
+  <body>
   <div class="container">
 
   <div class="vertical-center">
@@ -17,12 +17,21 @@
     <!-- Login Form -->
 
     <section class="nes-container with-title">
-            <p class="title"> Profile </p>
-            <p> Username: <?php echo $_SESSION['profileName'] ?>  <span> [EDIT] </span></p> 
-            <?php echo '<i class=', $_SESSION['avatar'] ,' mb-3></i>' ?>
-            <p> Flavor Text: Literally #1 </p>
-            <p> Posts: 0  </p>
+            <p class="title"> <?php echo $_SESSION['profileName'] ?> </p>
+            <p> Username: <?php echo $_SESSION['profileName'] ?> </p> 
+            <p>Avatar: </p>
+            <?php echo '<i class=', $_SESSION['avatar'] ,' text-center m-3></i>' ?>
+            <p class="bg-light">  </p>
 
+            <div class="nes-field" >
+            <label for="name_field">Flavor Text</label>
+            <form name="profileFlavorText" action="scripts/updateProfile.php">
+              <?php echo '<input value="', $_SESSION['ftext'], '" type="text" id="name_field" class="nes-input">'; ?>   
+            </div>
+              
+              <p>Posts: <?php echo $_SESSION['postCount']; ?> </p> 
+              <p> <button type="submit" class="nes-btn is-error">Save Changes</button> </p>
+            </form>
             <button onclick="javascript:window.history.back();"> Take me back captain! </button>
           </section>  
     
@@ -33,3 +42,8 @@
   </div>
   </body>
 </html>
+
+<?php
+
+
+?>
