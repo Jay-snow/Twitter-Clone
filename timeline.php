@@ -8,8 +8,6 @@
   include_once 'scripts/dbh.php';
   include 'scripts/addPosts.php';
 
-
-
 ?>
 
 
@@ -25,12 +23,7 @@
       <small class="p-2 text-dark mr-md-auto"> <a class="text-dark"  href="#">Messages</a></small>
       <i class="nes-logo is-large mr-md-auto"></i>
         <nav class="my-2 my-md-0 mr-md-3">       
-          <a class="nes-btn is-warning" id="logout" href="#">Log Out</a>
-
-<!-- Button trigger modal -->
-
-
-          
+          <a class="nes-btn is-warning" id="logout" href="#">Log Out</a>          
           <button type="button" class="nes-btn is-primary" data-toggle="modal" data-target="#writePost" href="#">Write Post</button>
         </nav>
       </div>
@@ -67,9 +60,9 @@
 
                      if (mysqli_connect_error()){
     die('Connect Error ('. mysqli_connect_errno() .')' . mysqli_connect_error());
-}
-else
-{
+    }
+    else
+    {
 
 
     $sql = "SELECT * FROM posts ORDER BY postID DESC"; 
