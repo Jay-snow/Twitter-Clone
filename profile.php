@@ -25,14 +25,14 @@
 
             <div class="nes-field" >
             <label for="name_field">Flavor Text</label>
-            <form name="profileFlavorText" action="scripts/updateProfile.php">
-              <?php echo '<input value="', $_SESSION['ftext'], '" type="text" id="name_field" class="nes-input">'; ?>   
+            <form name="profileFlavorText" method="POST" action="scripts/updateProfile.php">
+              <?php echo '<input name="name_field" value="', $_SESSION['ftext'], '" type="text" id="name_field" class="nes-input">'; ?>   
             </div>
               
               <p>Posts: <?php echo $_SESSION['postCount']; ?> </p> 
               <p> <button type="submit" class="nes-btn is-error">Save Changes</button> </p>
             </form>
-            <button onclick="javascript:window.history.back();"> Take me back captain! </button>
+            <button>  <a href= "./timeline.php"> Take me back captain! </a> </button>
           </section>  
     
   </section>

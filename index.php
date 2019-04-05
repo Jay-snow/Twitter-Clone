@@ -53,7 +53,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 
       <!--Password -->
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" >
+      <input type="password" name="password" id="inputPassword" required class="form-control" placeholder="Password" >
 
 
       <!-- Buttons -->

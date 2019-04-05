@@ -81,6 +81,7 @@
       '@', $row['postUser'], ' ',
       '<span class="text-muted">', $row['postDate'] , '</span></small> </p>',
       '<p>', $row['postText'], '</p>',
+      '<i onclick="postLike(this);" class="nes-icon heart is-empty"></i>',
       '</div> </section> ',
       '<i class="', $row['postAvatar'] ,' icon-rotate icon-flipped"></i>';
 
@@ -190,7 +191,18 @@
     </div>
   </div>
 </div>
-
+<script>
+  function postLike(post) {
+//  this.innerHTML = "WTF";
+  console.log(post.className);
+  if (post.className == "nes-icon heart is-empty") {
+      post.className = "nes-icon heart";
+  } else {
+      post.className = "nes-icon heart is-empty";
+  }
+  
+}
+</script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
