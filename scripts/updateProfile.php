@@ -2,24 +2,21 @@
 session_start();
 require "./dbh.php";
 
-$username = $_SESSION["profileName"];
+$ftextSession = $_SESSION["ftext"];
+$profileChangeText = $_POST['name_field'];
 
 
-
- //If successfully connected, do a thing
+//Write the SQL and connect to the database.
  $sql = "SELECT * FROM users WHERE username = 'jarule'";
- 
  $result = mysqli_query($conn,$sql);
  $row = mysqli_fetch_array($result);
 
+ //Look through the database find the matching flavor text. 
     if ($row['fname'] == $_SESSION["ftext"]) {
-           $_SESSION["profileName"] = $username;
-            $_SESSION["avatar"] = $row['avatar'];
-            $row['fname'] = "H1ello";
-            $_SESSION["ftext"] = $row['fname'];
-            $_SESSION["postCount"] = $row['postCount'];
-        echo "I see you....";
+            $sql2 = "UPDATE users set fname = '$profileChangeText' WHERE fname = '$ftextSession' ";
+            mysqli_query($conn,$sql2);
+            $_SESSION["ftext"] = $profileChangeText;
+            
     }
-
-echo "Hello"
+    header("Location: ../profile.php");
 ?>

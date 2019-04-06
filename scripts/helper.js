@@ -96,6 +96,11 @@ function newPost() {
 }
  
 
+function postLike(post) {
+//  this.innerHTML = "WTF";
+  
+}
+
 
 //POST TEXT
 //AJAX call to request PHP logout. I -think- this is slightly faster than directing to the PHP file, because it says 1 page from being loaded.

@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -32,14 +31,16 @@ if (!empty($username)) {
         $sql = "INSERT INTO users (username, password, fname, avatar, postCount) values ('$username','$passwordHash', '$fname', '$avatar', 0)";
 
         if ($conn->query($sql)){
-          //  echo "New user has been created.";
+          //Create sessions needed at login.
           $_SESSION["profileName"] = $username;
           $_SESSION["avatar"] = $avatar;
           $_SESSION["ftext"] = $fname;
           $_SESSION["postCount"] = 0;
           $_SESSION["loggedin"] = true;
 
-          echo "<script> setTimeout(function() {window.location.replace('/twitter-clone/index.php')}, 5000) </script>";
+          //Wait 5 seconds, redirect to
+          header("Refresh:5;  url=/twitter-clone/index.php");
+
 
         }
         else{
@@ -84,7 +85,7 @@ else {
     <!-- latest -->
 
 
-    <title>Login Page</title>
+    <title>Account Created</title>
 
     <!-- Bootstrap core CSS -->
     
