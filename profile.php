@@ -6,7 +6,6 @@
 
   $title = 'Profile';
   require 'header.php';
-
 ?>
 
   <body>
@@ -29,7 +28,14 @@
               <?php echo '<input name="name_field" value="', $_SESSION['ftext'], '" type="text" id="name_field" class="nes-input">'; ?>   
             </div>
               
-              <p>Posts: <?php echo $_SESSION['postCount']; ?> </p> 
+              <p>Posts: <?php 
+                    if ($_SESSION['postCount'] == 0 ) {
+                      echo "0";
+                    } else {
+                    echo $_SESSION['postCount']; 
+                    }
+              ?>
+             </p> 
               <p> <button type="submit" class="nes-btn is-error">Save Changes</button> </p>
             </form>
             <button>  <a href= "./timeline.php"> Take me back captain! </a> </button>

@@ -8,6 +8,7 @@
   include_once 'scripts/dbh.php';
   include 'scripts/addPosts.php';
 
+  
 ?>
 
 
@@ -40,7 +41,18 @@
             
             <?php echo '<i class=', $_SESSION['avatar'] ,' mb-3></i>' ?>
             <p> "<?php echo $_SESSION['ftext']; ?>" </p> 
-            <p>Posts: <?php echo $_SESSION['postCount']; ?> </p> 
+
+            <!-- PHP sees null and 0 as same, so nothing will print -->
+            <p>Posts: <?php 
+            
+            if ($_SESSION['postCount'] == 0 ) {
+              echo "0";
+            } else {
+            echo $_SESSION['postCount']; 
+            }
+            ?> 
+          
+          </p> 
             <p> Likes: 0 </p>
 
           </section>    
