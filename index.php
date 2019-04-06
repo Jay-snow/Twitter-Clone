@@ -19,6 +19,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 }
 
 
+
 ?>
   <body >
   <div class="container-fluid">
@@ -32,7 +33,15 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 
   <div class="nes-container is-dark with-title">
   <p class="title">Welcome to Octo Bit!</p>
-  <i class="nes-kirby d-block"></i>
+  <section class="message-list">
+  <section class="message -left">
+    <i class="nes-kirby d-block"></i>
+    <!-- Balloon -->
+    <div class="nes-balloon from-left">
+      <p style="font-size:150%;"class="text-dark ">Hi!</p>
+    </div>
+  </section>
+  <p class="mt-3"> Welcome to Octobit! </p>
   <p>OctoBit is an 8-bit social media platform, inspired by Twitter. </p> <p> There's no e-mail or validation needed - just create an account and get started! </p>
   <p>The amazing CSS framework was created by <a href="https://nostalgic-css.github.io/NES.css/">B.C.Rikko, creator of NES.CSS</a>. </p>
   <p> This website was created just for fun to teach myself PHP and mySQL. </p>
