@@ -4,10 +4,10 @@ require "./dbh.php";
 
 $ftextSession = $_SESSION["ftext"];
 $profileChangeText = $_POST['name_field'];
-
+$username =  $_SESSION['profileName'];
 
 //Write the SQL and connect to the database.
- $sql = "SELECT * FROM users WHERE username = 'jarule'";
+ $sql = "SELECT * FROM users WHERE username = '$username'";
  $result = mysqli_query($conn,$sql);
  $row = mysqli_fetch_array($result);
 
