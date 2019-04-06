@@ -16,7 +16,22 @@ if (!empty($username)) {
   if (!empty($password)) {
 
 
-    
+    //Check if the username exists in the database.
+
+      //If successfully connected, do a thing
+      $sql = "SELECT * FROM users WHERE username = '$username'";
+      $result = mysqli_query($conn,$sql);
+      $row = mysqli_fetch_array($result);
+
+        
+      // If the query returns null
+      if (isset($row['username'])  ) {
+        header("Location: /twitter-clone/create-account.php?UserExist");
+        $_SESSION["loggedin"] = false;
+        exit();
+
+      }
+
     
     // If you fail to connect, show an error
     if (mysqli_connect_error()){
@@ -27,6 +42,8 @@ if (!empty($username)) {
 
       $passwordHash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
+
+      
 
         $sql = "INSERT INTO users (username, password, fname, avatar, postCount) values ('$username','$passwordHash', '$fname', '$avatar', 0)";
 
