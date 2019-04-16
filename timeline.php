@@ -19,9 +19,9 @@
   <div class="border" >
   <div class="container-fluid ">
     <div class="d-flex flex-column flex-md-row align-items-center p-1   bg-white ">
-      <small class="my-0 ml-0 font-weight-normal"><a class="text-dark" href="#" >Home</a> </small>
-      <small class="p-2 ">     <a class="text-dark"  href="#">  Notifications</a></small>
-      <small class="p-2 text-dark mr-md-auto"> <a class="text-dark"  href="#">Messages</a></small>
+      <small class="my-0 ml-0 font-weight-normal"><a class="text-dark" href="#" >PokéTweet</a> </small>
+      <small class="p-2 ">     <a class="text-dark d-none"  href="#">  Notifications</a></small>
+      <small class="p-2 text-dark mr-md-auto "> <a class="text-dark d-none"  href="#">Messages</a></small>
       <i class="nes-logo is-large mr-md-auto"></i>
         <nav class="my-2 my-md-0 mr-md-3">       
           <a class="nes-btn is-warning" id="logout" href="#">Log Out</a>          
@@ -31,7 +31,7 @@
     </div>
   </div>
 
-  <div class="container-fluid">
+  <div class="container-fluid mt-3">
     <div class="row">
 
       <!-- User Profile -->
@@ -93,7 +93,7 @@
       '@', $row['postUser'], ' ',
       '<span class="text-muted">', $row['postDate'] , '</span></small> </p>',
       '<p>', $row['postText'], '</p>',
-      '<i onclick="postLike(this);" class="nes-icon heart is-empty"></i>',
+      '<i onclick="postLike(this);" class="nes-icon heart d-none is-empty"></i>',
       '</div> </section> ',
       '<i class="', $row['postAvatar'] ,' icon-rotate icon-flipped"></i>';
 
@@ -154,7 +154,7 @@
                 <!-- Advertisements apparently -->
                 <section class="col-12 border">
                     Welcome to PokéTweet!
-                    <i class="nes-pokeball text-center"></i>
+                    <i class="nes-pokeball text-center m-3"></i>
                 </section>
 
                 <!-- Who to follow -->

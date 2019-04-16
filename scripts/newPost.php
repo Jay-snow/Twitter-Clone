@@ -27,8 +27,8 @@ include_once 'dbh.php';
         $sql = "INSERT INTO posts (postText, postUser, postDate, postAvatar) values ('$postText','$postUser', '$postDate', '$postAvatar')";
 
         if ($conn->query($sql)){
-            echo "Post data has been saved.";
-            echo "<script> window.location.replace('/twitter-clone/timeline.php'); </script>";
+            echo "Post successful! Please wait while you are redirected to the timeline.";
+            echo "<script> window.location.replace('../timeline.php'); </script>";
             exit();
         }
         else{
@@ -38,8 +38,6 @@ include_once 'dbh.php';
 
     }
 
-    var_dump($postUser);
-    var_dump($postText);
-    echo date("y-m-d");
+
 
 ?>

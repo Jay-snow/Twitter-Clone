@@ -49,7 +49,7 @@ if (!empty($username)) {
           
 
           echo "Welcome! " , $_SESSION['profileName'];
-          echo "<script> window.location.replace('/twitter-clone/timeline.php') </script>";
+          echo "<script> window.location.replace('../timeline.php') </script>";
 
            
           } else {
@@ -57,7 +57,7 @@ if (!empty($username)) {
             $passFail = $_SESSION['passFail'];
             global $passFail;
             
-            echo "<script> window.location.replace('/twitter-clone/index.php?LoginError') </script>";
+            echo "<script> window.location.replace('../index.php?LoginError') </script>";
             
           }
 
@@ -67,7 +67,7 @@ if (!empty($username)) {
         //var_dump($row);
 
           
-          echo "<script> alert('An error has occured. You were not found in the database')</script>";
+          echo "<script> alert('An error has occured. You were not found in the database'); window.location.replace('../index.php?LoginError')</script>";
 
         }
 
