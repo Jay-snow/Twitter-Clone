@@ -135,7 +135,7 @@
 
     }
 
-    $conn->close();
+    
 
 }
 
@@ -153,12 +153,45 @@
                 
                 <!-- Advertisements apparently -->
                 <section class="col-12 border">
-                    Welcome to OctoBit!
+                    Welcome to PokéTweet!
+                    <i class="nes-pokeball text-center"></i>
                 </section>
 
                 <!-- Who to follow -->
                 <section class="col-12 border">
-                    Who to Follow (coming never)
+                  <p> Pokemon Demographics </p>
+
+                <?php
+    $sql = "SELECT COUNT(*) as total FROM `users` WHERE avatar = 'nes-squirtle'"; 
+
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_assoc($result);
+    echo '<div class="text-primary"> Squirtles: ', $row['total'], '</div>';
+    
+    $sql = "SELECT COUNT(*) as total FROM `users` WHERE avatar = 'nes-bulbasaur'"; 
+
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_assoc($result);
+    echo '<div class="text-success"> Bulbasaurs: ', $row['total'], '</div>';
+
+    $sql = "SELECT COUNT(*) as total FROM `users` WHERE avatar = 'nes-charmander'"; 
+
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_assoc($result);
+    echo '<div class="text-danger"> Charmanders: ', $row['total'], '</div>';
+
+    $sql = "SELECT COUNT(*) as total FROM `users`"; 
+
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_assoc($result);
+    echo '<div> Population: ', $row['total'], '</div>';
+
+    $conn->close();
+
+                ?>
+                 
+
+
                 </section>
           
             </div>
