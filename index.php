@@ -32,19 +32,20 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
   <section class="col col-md-5">
 
   <div class="nes-container is-dark with-title">
-  <p class="title">Welcome to Octo Bit!</p>
+  <p class="title">Welcome to PokéTweet!</p>
   <section class="message-list">
   <section class="message -left">
-    <i class="nes-kirby d-block"></i>
+  <i class="nes-pokeball d-block"></i>
     <!-- Balloon -->
     <div class="nes-balloon from-left">
-      <p style="font-size:150%;"class="text-dark ">Hi!</p>
+      <p style="font-size:150%;"class="text-dark ">I choose you!</p>
     </div>
   </section>
-  <p class="mt-3"> Welcome to Octobit! </p>
-  <p>OctoBit is an 8-bit social media platform, inspired by Twitter. </p> <p> There's no e-mail or validation needed - just create an account and get started! </p>
+  <p class="mt-3"> Welcome to PokéTweet! </p>
+  <p>PokéTweet is an 8-bit social media platform, inspired by Twitter. </p> <p> There's no e-mail or validation needed - just create an account and get started! </p>
   <p>The amazing CSS framework was created by <a href="https://nostalgic-css.github.io/NES.css/">B.C.Rikko, creator of NES.CSS</a>. </p>
   <p> This website was created just for fun to teach myself PHP and mySQL. </p>
+  <small>Disclaimer: PokéTweet is a fan-created website. Pokémon (Pocket Monsters) is © 1995-2019 Nintendo / Creatures Inc. / GAME FREAK, Inc. / Pokémon. No infringement of copyrights is meant by the creation of this website. </small>
 </div>
 
 
@@ -67,6 +68,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 
       <!-- Buttons -->
       <button class="nes-btn is-primary mt-3" name="submit" type="submit">Log in</button>
+
+      <h4 class="mt-5"> First time here? </h4>
+      <p> Getting started is easy! Create a new account and begin posting immediately - no e-mail or validation needed.  </p>
       <a class="nes-btn is-warning mt-3" href="create-account.php" >Create New Account</a>
 
       <!-- Credits -->

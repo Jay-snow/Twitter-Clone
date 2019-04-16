@@ -29,12 +29,10 @@
     <div class="vertical-center">
 
     
-      <p> Wait I'm not ready for committment! 
-       <button onclick="javascript:window.history.back();"> Take me back captain! </button>
-      </p>
+
 
     <!-- Create Account Form -->
-    <section class="col col-md-6 m-auto  ">
+    <section class="col col-md-8 m-auto  ">
       <form id="accountForm" action="scripts/signup.php" method="POST">
         <div class="card card-body">
           <h3 class="text-center mb-4">Sign-up</h3>
@@ -47,15 +45,20 @@
                   Username <input id="username" class="form-control input-lg d-inline"  name="username" type="text" required>
               </div>
               <div class="form-group has-error">
-                  First Name <small>(optional)</small> <input class="form-control input-lg d-inline"  name="fname" type="text">
+                  Flavor Text <small>(optional. Can be changed later.)</small>
+                
+                  <input class="form-control input-lg d-inline"  name="fname" type="text">
               </div>
               <div class="form-group has-error">
-                  Avatar: <select name="avatar">
+                  Avatar: <select id="avatarSelect" name="avatar" onchange="changeAvatar();">
                     <option value="nes-bulbasaur">Bulbasaur</option>
                     <option value="nes-charmander">Charmander</option>
                     <option value="nes-squirtle">Squirtle</option>
                   </select>
               </div>
+
+              
+              <i id="avatarExample" class="nes-bulbasaur"></i>
               <div class="form-group has-success">
                 Password  <input id="passwordInput" class="form-control input-lg" name="password" value="" type="password" required>
               </div>
@@ -71,6 +74,10 @@
           </fieldset>
         </div>
       </form>  
+
+   
+       <button onclick="javascript:window.history.back();"> Back To Homepage </button>
+      </p>
     </section>
 
     </div>
@@ -79,6 +86,15 @@
     </div>
   </div>
   <script>
+                const avatarExample =  document.getElementById("avatarExample");
+                const avatarSelect = document.getElementById("avatarSelect");
+
+          function changeAvatar() {
+            console.log("Yo!");
+            avatarExample.className = "";
+            avatarExample.classList.add(avatarSelect.value);
+          }
+
     var submitButton = document.getElementById("makeaccount");
     var passwordInput = document.getElementById("passwordInput");
     var passwordConfirm = document.getElementById("passwordConfirm");
@@ -91,7 +107,7 @@
 
       if (passwordInput.value === passwordConfirm.value)
       {
-        alert("Your passwords match!");
+        // alert("Your passwords match!");
         
 
         if (username.value !== "" ){

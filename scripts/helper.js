@@ -96,9 +96,9 @@ function newPost() {
 }
  
 
-function postLike(post) {
-//  this.innerHTML = "WTF";
-  
+function postLike() {
+  this.innerHTML = "WTF";
+  console.log(this.innerHTML);
 }
 
 
