@@ -119,7 +119,7 @@ else {
   <section  class="col col-md-6 m-auto text-center ">
     <p>   <i class="nes-icon is-large like"></i> </p>
    <h1> Username created!  </h1>
-   <p> Hi <?php echo $_POST["username"]; ?>! Welcome to OctoBit! </p>
+   <p> Hi <?php echo $_POST["username"]; ?>! Welcome to PokéTweet! </p>
    <small> <a href="../index.php"> You will be redirected in 5 seconds. Or you can click here </a> </small>
    
   </section>

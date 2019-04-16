@@ -121,7 +121,7 @@ function updateUsernameText() {
   usernameCounter.textContent = characterCount.length + "/64";
   fnameCounter.textContent = fnameFieldCharacterCount.length + "/500";
   passwordCounter.textContent = passwordInputCharacterCount.length + "/255";
-  passwordConfirm.textContent = passwordConfirmCharacterCount.length + "/255";
+  passwordConfirmCounter.textContent = passwordConfirmCharacterCount.length + "/255";
 }
 
 
