@@ -44,7 +44,6 @@
 
 
 
-
 //POSTBOX TEXT UPDATER 0/160
 // This lets the user know how many characters they have left.
 var postTextField = document.getElementById("textarea_field");
