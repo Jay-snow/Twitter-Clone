@@ -46,7 +46,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
   
   <p> This website was created just for fun to teach myself PHP and mySQL. </p>
   <p>
-  <small>Disclaimer: PokéTweet is a fan-created website. Pokémon (Pocket Monsters) is © 1995-2019 Nintendo / Creatures Inc. / GAME FREAK, Inc. / Pokémon. No infringement of copyrights is meant by the creation of this website. </small>
+  
   <small> Website coded by <a href="https://www.marcussnow.dev" target="_blank">Marcus Snow</a>. <p>The amazing CSS framework was created by <a href="https://nostalgic-css.github.io/NES.css/">B.C.Rikko, creator of NES.CSS</a>. </p> </small>
   </p>
 </div>
@@ -89,8 +89,14 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
     </form>
   </section>
   
+  <div class="col-6 mt-5 mb-2">
+  <small class="text-secondary" style="font-size:0.75em;">Disclaimer: PokéTweet is a fan-created website. Pokémon (Pocket Monsters) is © 1995-2019 Nintendo
+     / Creatures Inc. / GAME FREAK, Inc. / Pokémon. No infringement of copyrights is meant by the creation of this website. </small>
+</div>
+  </div>
+  </div>
 
-  </div>
-  </div>
+
+  
   </body>
 </html>
