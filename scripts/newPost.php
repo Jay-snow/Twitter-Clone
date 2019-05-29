@@ -9,6 +9,7 @@ $postUser = $_SESSION['profileName'];
 $postDate = $_SESSION['currentDate'];
 $postAvatar = $_SESSION['avatar'];
 
+//Sanitize user input before sending to database
 $postTextFilter = filter_var($postText,FILTER_SANITIZE_STRING);
 
 $postText = $postTextFilter;
