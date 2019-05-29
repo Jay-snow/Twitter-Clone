@@ -34,7 +34,7 @@
   <div class="container-fluid mt-3">
     <div class="row">
 
-      <!-- User Profile -->
+      <!-- User Profile Loop -->
       <div  class="col-12 col-md-3 border">
             <section class="nes-container with-title">
 
@@ -44,30 +44,29 @@
     $sql = "SELECT * FROM users WHERE pid = $pid"; 
     $result = mysqli_query($conn,$sql);
 
+      
     while ($row = mysqli_fetch_array($result)) {
-        echo $row['username'];
-        echo $row['fname'];
+      
+        echo '<p class="title"> <a href="./profile.php?pid=',$row['pid'] ,'">', $row['username']  ,'</a> </p>';
+        echo '<i class=', $_SESSION['avatar'] ,' mb-3> </i>';
+        echo '<p>', $row['fname'], '</p> ';
+        echo '<p> Posts: ';
+        /* PHP sees null and 0 as same, so nothing will print if user hasn't posted.
+          */
+        if ($row['postCount'] == 0 ) {
+          echo "0";
+        } else {
+        echo $row['postCount']; 
+        }
+        echo '</p>';
+
+
     }
 
   
 
             ?>
 
-            <p class="title"> <a href="./profile.php"> <?php echo $_SESSION['profileName'] ?></a> </p>
-            
-            <?php echo '<i class=', $_SESSION['avatar'] ,' mb-3></i>' ?>
-            <p> "<?php echo $_SESSION['ftext']; ?>" </p> 
-
-            <!-- PHP sees null and 0 as same, so nothing will print -->
-            <!-- Checks to see if 0 needs to be echo'd -->
-            <p>Posts: <?php 
-            
-            if ($_SESSION['postCount'] == 0 ) {
-              echo "0";
-            } else {
-            echo $_SESSION['postCount']; 
-            }
-            ?> 
           
           </p> 
             <p> Likes: 0 </p>
