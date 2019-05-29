@@ -6,6 +6,7 @@ $postText = $_POST['textarea_field'];
 $postUser = $_SESSION['profileName'];
 $postDate = $_SESSION['currentDate'];
 $postAvatar = $_SESSION['avatar'];
+$postPid = $_SESSION['pid'];
 
 //Sanitize user input before sending to database
 $postTextFilter = filter_var($postText,FILTER_SANITIZE_STRING);
@@ -23,7 +24,7 @@ include_once 'dbh.php';
     {
         
 
-        $sql = "INSERT INTO posts (postText, postUser, postDate, postAvatar) values ('$postText','$postUser', '$postDate', '$postAvatar')";
+        $sql = "INSERT INTO posts (postText, postUser, postDate, postAvatar, postPid) values ('$postText','$postUser', '$postDate', '$postAvatar', '$postPid')";
 
         if ($conn->query($sql)){
             echo "Post successful! Please wait while you are redirected to the timeline.";

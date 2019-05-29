@@ -5,9 +5,15 @@
   //  $link = mysql_
 
   $title = 'Profile';
-  $id = $_GET['pid'];
+
+
+
+
+
   echo $id;
   require 'header.php';
+  include_once 'scripts/dbh.php';
+
 ?>
 
   <body>
@@ -22,28 +28,82 @@
 
 
     <section class="nes-container with-title">
-            <p class="title"> <?php echo $_SESSION['profileName'] ?> </p>
-            <p> Username: <?php echo $_SESSION['profileName'] ?> </p> 
-            <p>Avatar: </p>
-            <?php echo '<i class=', $_SESSION['avatar'] ,' text-center m-3></i>' ?>
-            <p class="bg-light">  </p>
+    <?php
+    
+    $profileid = htmlspecialchars($_GET['pid']);
+    $sql = "SELECT * FROM users WHERE pid = $profileid";
 
-            <div class="nes-field" >
-            <label for="name_field">Flavor Text</label>
-            <form name="profileFlavorText" method="POST" action="scripts/updateProfile.php">
-              <?php echo '<input name="name_field" value="', $_SESSION['ftext'], '" type="text" id="name_field" class="nes-input">'; ?>   
-            </div>
-              
-              <p>Posts: <?php 
-                    if ($_SESSION['postCount'] == 0 ) {
-                      echo "0";
-                    } else {
-                    echo $_SESSION['postCount']; 
-                    }
-              ?>
+    $result = mysqli_query($conn,$sql);
+
+    while ( $row = mysqli_fetch_array($result)  ) {
+
+      echo '<p class="title">', $row['username'],  '</p>';
+      echo '<p> Username:', $row['username'] , '</p> ';
+      echo '<p>Avatar: </p>',  '<i class=', $row['avatar'] ,' text-center m-3></i>';
+
+
+      /* Show permissions to change only if user is logged in to that account */
+      if ($_SESSION['pid'] == $row['pid']) {
+        echo 
+        '<p class="bg-light">  </p>',
+  
+        '<div class="nes-field" >',
+        '<label for="name_field">Flavor Text</label>',
+  
+        
+  
+  
+        '<form name="profileFlavorText" method="POST" action="scripts/updateProfile.php">',
+        '<input name="name_field" value="', $row['fname'], '" type="text" id="name_field" class="nes-input">', '</div>';
+
+        echo 'Posts: ';
+        /* PHP sees null and 0 as the same, so need to print out a string 0 in case of no posts */
+        if ($row['postCount'] == 0 ) {
+          echo "0";
+        } else {
+        echo $row['postCount']; 
+        }
+        echo
+        '<p> <button type="submit" class="nes-btn is-error">Save Changes</button> </p> </form>';
+
+      } else {
+        echo
+        '<p class="bg-light">  </p>',
+  
+        '<div class="nes-field" >',
+        '<label for="name_field">Flavor Text</label>',
+  
+        
+  
+  
+        '<form name="profileFlavorText" method="POST" action="scripts/updateProfile.php">',
+        '<div name="name_field" ', '" id="name_field" class="nes-input"> <em>"', $row['fname'], '" </em></div> </div>';
+
+        echo 'Posts: ';
+        /* PHP sees null and 0 as the same, so need to print out a string 0 in case of no posts */
+        if ($row['postCount'] == 0 ) {
+          echo "0";
+        } else {
+        echo $row['postCount']; 
+        }
+
+
+      }
+
+
+
+    
+
+      
+      
+
+    }
+
+
+    ?>
+
              </p> 
-              <p> <button type="submit" class="nes-btn is-error">Save Changes</button> </p>
-            </form>
+
             <button>  <a href= "./timeline.php"> Take me back captain! </a> </button>
           </section>  
     

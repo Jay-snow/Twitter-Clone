@@ -48,7 +48,7 @@
     while ($row = mysqli_fetch_array($result)) {
       
         echo '<p class="title"> <a href="./profile.php?pid=',$row['pid'] ,'">', $row['username']  ,'</a> </p>';
-        echo '<i class=', $_SESSION['avatar'] ,' mb-3> </i>';
+        echo '<i class=', $row['avatar'] ,' mb-3> </i>';
         echo '<p>', $row['fname'], '</p> ';
         echo '<p> Posts: ';
         /* PHP sees null and 0 as same, so nothing will print if user hasn't posted.
@@ -106,8 +106,8 @@
       echo '<section class="message -left">',
      
       '<div class="nes-balloon from-left">',
-      ' <p class=" mr-auto text-left"> <small class="text-primary">',
-      '@', $row['postUser'], ' ',
+      ' <p class=" mr-auto text-left"> <a href="./profile.php?pid=',$row['postPid'] ,'"> <small class="text-primary">',
+      '@', $row['postUser'], '</a> ',
       '<span class="text-muted">', $row['postDate'] , '</span></small> </p>',
       '<p>', $row['postText'], '</p>',
       '<i onclick="postLike(this);" class="nes-icon heart d-none is-empty"></i>',
@@ -120,8 +120,8 @@
       echo '<section class="message -right">',
       
       '<div class="nes-balloon from-right">',
-      ' <p class=" mr-auto text-left"> <small class="text-primary">',
-      '@', $row['postUser'], ' ',
+      ' <p class=" mr-auto text-left"> <a href="./profile.php?pid=',$row['postPid'] ,'"> <small class="text-primary">',
+      '@', $row['postUser'], '</a> ',
       '<span class="text-muted">', $row['postDate'] , '</span></small> </p>',
       '<p>', $row['postText'], '</p>',
       '</div>',
