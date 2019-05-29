@@ -37,12 +37,29 @@
       <!-- User Profile -->
       <div  class="col-12 col-md-3 border">
             <section class="nes-container with-title">
+
+
+            <?php
+    $pid = $_SESSION['pid'];
+    $sql = "SELECT * FROM users WHERE pid = $pid"; 
+    $result = mysqli_query($conn,$sql);
+
+    while ($row = mysqli_fetch_array($result)) {
+        echo $row['username'];
+        echo $row['fname'];
+    }
+
+  
+
+            ?>
+
             <p class="title"> <a href="./profile.php"> <?php echo $_SESSION['profileName'] ?></a> </p>
             
             <?php echo '<i class=', $_SESSION['avatar'] ,' mb-3></i>' ?>
             <p> "<?php echo $_SESSION['ftext']; ?>" </p> 
 
             <!-- PHP sees null and 0 as same, so nothing will print -->
+            <!-- Checks to see if 0 needs to be echo'd -->
             <p>Posts: <?php 
             
             if ($_SESSION['postCount'] == 0 ) {
@@ -79,6 +96,7 @@
     $sql = "SELECT * FROM posts ORDER BY postID DESC"; 
     $result = mysqli_query($conn,$sql);
 
+    // The Feed Loop
     while ($row = mysqli_fetch_array($result))
     {
 

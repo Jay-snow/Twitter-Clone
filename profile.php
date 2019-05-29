@@ -5,6 +5,8 @@
   //  $link = mysql_
 
   $title = 'Profile';
+  $id = $_GET['pid'];
+  echo $id;
   require 'header.php';
 ?>
 
@@ -14,6 +16,10 @@
   <div class="vertical-center">
   <section  class="col col-md-6 m-auto ">
     <!-- Login Form -->
+
+
+
+
 
     <section class="nes-container with-title">
             <p class="title"> <?php echo $_SESSION['profileName'] ?> </p>

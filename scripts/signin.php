@@ -44,6 +44,7 @@ if (!empty($username)) {
             $_SESSION["avatar"] = $row['avatar'];
             $_SESSION["ftext"] = $row['fname'];
             $_SESSION["postCount"] = $row['postCount'];
+            $_SESSION["pid"] = $row['pid'];
             global $username;
           $_SESSION["loggedin"] = true;
           
