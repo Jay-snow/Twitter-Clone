@@ -7,12 +7,7 @@
 
   include_once 'scripts/dbh.php';
   include 'scripts/addPosts.php';
-
-  
 ?>
-
-
-
   <body id="bodyTest" class="text-center">
 
   <!-- Top Navbar -->
@@ -46,30 +41,32 @@
 
       
     while ($row = mysqli_fetch_array($result)) {
-      
+        
         echo '<p class="title"> <a href="./profile.php?pid=',$row['pid'] ,'">', $row['username']  ,'</a> </p>';
         echo '<i class=', $row['avatar'] ,' mb-3> </i>';
         echo '<p>', $row['fname'], '</p> ';
         echo '<p> Posts: ';
-        /* PHP sees null and 0 as same, so nothing will print if user hasn't posted.
+        /* PHP sees 0 as null, so nothing will print if $['postCount'] == 0.
           */
+          
+
         if ($row['postCount'] == 0 ) {
           echo "0";
         } else {
         echo $row['postCount']; 
         }
         echo '</p>';
-
-
     }
 
-  
+    echo '<p> Likes: 0</p>';
+
+    echo '<a class="nes-btn is-success" href="#">Follow</a> ';
 
             ?>
 
           
           </p> 
-            <p> Likes: 0 </p>
+            
 
           </section>    
     </div>
@@ -90,6 +87,9 @@
     }
     else
     {
+
+      $profileid = htmlspecialchars($_GET['pid']);
+      $sql = "SELECT * FROM users WHERE pid = $profileid";
 
 
     $sql = "SELECT * FROM posts ORDER BY postID DESC"; 

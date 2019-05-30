@@ -10,7 +10,7 @@
 
 
 
-  echo $id;
+ 
   require 'header.php';
   include_once 'scripts/dbh.php';
 
