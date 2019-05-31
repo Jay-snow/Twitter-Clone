@@ -2,7 +2,7 @@
 $host = 'localhost';
 $dbusername = "root";
 $dbpassword = "z3rgImba";
-$dbname = "twitter-clone";
+$dbname = "poketweet";
 $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
 /*
   Connect to Database function

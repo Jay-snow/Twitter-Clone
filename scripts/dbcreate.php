@@ -11,15 +11,13 @@ if (mysqli_connect_errno() ) {
 } else {
 
 
-$dbCreate = 'twitter-clone';
-$link = mysqli_connect('localhost','root','z3rgImba');
+$dbCreate = 'poketweet';
+$link = mysqli_connect('localhost','root','');
 
 //Check to see if database exists. If not, create it
 $sql = "SHOW DATABASES LIKE '$dbCreate' ";
 $result = mysqli_query($link,$sql);
 $row = mysqli_fetch_array($result);
-
-
 
 if (isset($row)) {
 
