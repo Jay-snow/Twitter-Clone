@@ -9,7 +9,7 @@
   include 'scripts/addPosts.php';
 ?>
   <body id="bodyTest" class="text-center">
-
+  
   <!-- Top Navbar -->
   <div class="border" >
   <div class="container-fluid ">
@@ -39,7 +39,7 @@
     $sql = "SELECT * FROM users WHERE pid = $pid"; 
     $result = mysqli_query($conn,$sql);
 
-      
+    
     while ($row = mysqli_fetch_array($result)) {
         
         echo '<p class="title"> <a href="./profile.php?pid=',$row['pid'] ,'">', $row['username']  ,'</a> </p>';
@@ -59,8 +59,9 @@
     }
 
     echo '<p> Likes: 0</p>';
-
-    echo '<a class="nes-btn is-success" href="#">Follow</a> ';
+    echo '<form action="scripts/follow.php" class="form-signin p-3" method="POST">';
+    echo '<button class="nes-btn is-success" >Follow</button> ';
+    echo '</form>';
 
             ?>
 
@@ -114,7 +115,7 @@
       '</div> </section> ',
       '<i class="', $row['postAvatar'] ,' icon-rotate icon-flipped"></i>';
 
-      } else {
+      } /* else {
 
         
       echo '<section class="message -right">',
@@ -133,7 +134,7 @@
       }
 
 
-
+*/
 
 
       /*  $row['postUser'], ": ", $row['postText'], '</p>'; */
