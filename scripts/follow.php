@@ -5,9 +5,11 @@ include 'dbh.php';
 
 $followerID = htmlspecialchars($_GET['pid']);
 
+var_dump($_GET);
+$yourID = $_SESSION['pid'];
 
-$sql = "INSERT INTO users (followerList, ) values ('$followerID')";
-
+$sql = "UPDATE users SET followerList = '$followerID' WHERE $followerID = $yourID";
+mysqli_query($conn, $sql);
 
 echo "Follower followed.";
 

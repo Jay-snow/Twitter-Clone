@@ -58,8 +58,9 @@
         echo '</p>';
     }
 
+
     echo '<p> Likes: 0</p>';
-    echo '<form action="scripts/follow.php" class="form-signin p-3" method="POST">';
+    echo '<form action="scripts/follow.php?pid=', $_GET['pid'] ,'" class="form-signin p-3" method="POST">';
     echo '<button class="nes-btn is-success" >Follow</button> ';
     echo '</form>';
 
