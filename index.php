@@ -32,7 +32,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
   <section class="col col-md-5">
 
   <div class="nes-container is-dark with-title">
-  <p class="title">Welcome to PokéTweet!</p>
+  <p class="title">Welcome to Poké-a-Tweet!</p>
   <section class="message-list">
   <section class="message -left">
   <i class="nes-pokeball d-block"></i>
@@ -44,11 +44,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
   <p class="mt-3"> Welcome to PokéTweet! </p>
   <p>PokéTweet is an 8-bit social media platform, inspired by Twitter. </p> <p> There's no e-mail or validation needed - just create an account and get started! </p>
   
-  <p> This website was created just for fun to teach myself PHP and mySQL. </p>
   <p>
   
-  <small> Website coded by <a href="https://www.marcussnow.dev" target="_blank">Marcus Snow</a>. <p>The amazing CSS framework was created by <a href="https://nostalgic-css.github.io/NES.css/">B.C.Rikko, creator of NES.CSS</a>. </p> </small>
-  </p>
+  <small> Website coded by <a href="https://www.marcussnow.dev" target="_blank">Marcus Snow</a>. </small>
 </div>
 
 
