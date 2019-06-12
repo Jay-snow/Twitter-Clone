@@ -26,7 +26,7 @@ if (!empty($username)) {
         
       // If the query returns null
       if (isset($row['username'])  ) {
-        header("Location: /twitter-clone/create-account.php?UserExist");
+        header("Location: ../create-account.php?UserExist");
         $_SESSION["loggedin"] = false;
         exit();
 
@@ -56,7 +56,7 @@ if (!empty($username)) {
           $_SESSION["loggedin"] = true;
 
           //Wait 5 seconds, redirect to
-          header("Refresh:5;  url=/twitter-clone/index.php");
+          header("Refresh:5;  url=../index.php");
 
 
         }

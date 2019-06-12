@@ -49,8 +49,7 @@ if (!empty($username)) {
           $_SESSION["loggedin"] = true;
           
 
-          echo "Welcome! " , $_SESSION['profileName'];
-          echo "<script> window.location.replace('../timeline.php?'", $_SESSION["pid"] ,") </script>";
+
           header("Location: ../timeline.php?pid=" .$_SESSION["pid"] );
           die();
 
