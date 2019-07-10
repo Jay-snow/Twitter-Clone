@@ -54,7 +54,7 @@ if (!empty($username)) {
           $_SESSION["ftext"] = $fname;
  
           $_SESSION["postCount"] = 0;
-          $_SESSION["loggedin"] = true;
+
 
           //Wait 5 seconds, redirect to
           header("Refresh:5;  url=../index.php");

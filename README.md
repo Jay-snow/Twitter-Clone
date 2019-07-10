@@ -1,6 +1,6 @@
 # Poke-Tweet
 
-A twitter-clone implemented with HTML, CSS, PHP, and mySQL. This project was my way of dipping my toes into the backend.
+A twitter-clone implemented with HTML, CSS, PHP, and mySQL. This project was my first exposure to PHP, mySQL, and phpmyadmin.
 
 ## Motivation
 
