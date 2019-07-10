@@ -52,6 +52,7 @@ if (!empty($username)) {
           $_SESSION["profileName"] = $username;
           $_SESSION["avatar"] = $avatar;
           $_SESSION["ftext"] = $fname;
+ 
           $_SESSION["postCount"] = 0;
           $_SESSION["loggedin"] = true;
 

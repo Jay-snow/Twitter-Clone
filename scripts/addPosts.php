@@ -3,7 +3,6 @@ $postCheck = $_SESSION['profileName'];
 session_start();
 
 include_once 'dbh.php';
-echo "Hello";
 
     // If you fail to connect, show an error
     if (mysqli_connect_error()){

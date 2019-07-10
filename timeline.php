@@ -90,9 +90,7 @@
     else
     {
 
-      $profileid = htmlspecialchars($_GET['pid']);
-      $sql = "SELECT * FROM users WHERE pid = $profileid";
-
+      
 
     $sql = "SELECT * FROM posts ORDER BY postID DESC"; 
     $result = mysqli_query($conn,$sql);
@@ -116,7 +114,7 @@
       '</div> </section> ',
       '<i class="', $row['postAvatar'] ,' icon-rotate icon-flipped"></i>';
 
-      } /* else {
+      } else {
 
         
       echo '<section class="message -right">',
@@ -135,7 +133,7 @@
       }
 
 
-*/
+
 
 
       /*  $row['postUser'], ": ", $row['postText'], '</p>'; */
