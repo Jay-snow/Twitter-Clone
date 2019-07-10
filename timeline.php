@@ -6,7 +6,7 @@
   $_SESSION['currentDate'] = date('d-M');
 
   include_once 'scripts/dbh.php';
-  include 'scripts/addPosts.php';
+ 
 ?>
   <body id="bodyTest" class="text-center">
   
@@ -14,7 +14,7 @@
   <div class="border" >
   <div class="container-fluid ">
     <div class="d-flex flex-column flex-md-row align-items-center p-1   bg-white ">
-      <small class="my-0 ml-0 font-weight-normal"><a class="text-dark" href="#" >PokéTweet</a> </small>
+      <small class="my-0 ml-0 font-weight-normal h2"><a class="text-dark" href="#" ><span style="color:red;">Poké</span>Tweet</a> </small>
       <small class="p-2 ">     <a class="text-dark d-none"  href="#">  Notifications</a></small>
       <small class="p-2 text-dark mr-md-auto "> <a class="text-dark d-none"  href="#">Messages</a></small>
       <i class="nes-logo is-large mr-md-auto"></i>
@@ -26,6 +26,7 @@
     </div>
   </div>
 
+  <!-- User Profile-->
   <div class="container-fluid mt-3">
     <div class="row">
 
