@@ -2,8 +2,6 @@
 
 /* Resets the database */
 
-
-
 if (mysqli_connect_errno() ) {
 
     die( "Connection error");

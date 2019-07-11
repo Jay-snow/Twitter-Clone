@@ -24,7 +24,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
   <body >
   <div class="container-fluid">
   <div class="row">
-  <div class="col-12">
+  <div class="col-12 mt-4">
 <!-- <h1> OctoBit </h1>  <i class="nes-mario m-4"></i> -->
   </div>
   
@@ -87,7 +87,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
     </form>
   </section>
   
-  <div class="col-6 mt-5 mb-2">
+  <div class="col-9 mx-auto mt-5 mb-2">
   <small class="text-secondary" style="font-size:0.75em;">Disclaimer: PokéTweet is a fan-created website. Pokémon (Pocket Monsters) is © 1995-2019 Nintendo
      / Creatures Inc. / GAME FREAK, Inc. / Pokémon. No infringement of copyrights is meant by the creation of this website. </small>
 </div>
