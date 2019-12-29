@@ -38,7 +38,7 @@ echo '
     <!-- Custom styles for this template -->
     <link href="./css/nes.min.css" rel="stylesheet" />
   <link href="./css/press-start-font.css" rel="stylesheet">
-  <link href="./css/styles.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
 
   </head>
 
