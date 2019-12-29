@@ -72,7 +72,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 
       <h4 class="mt-5"> First time here? </h4>
       <p> Getting started is easy! Create a new account and begin posting immediately - no e-mail or validation needed.  </p>
-      <a class="nes-btn is-warning mt-3" href="create-account.php" >Create New Account</a>
+      <a class="nes-btn is-warning mt-3" href="/create-account.php" >Create New Account</a>
 
       <!-- Credits -->
       <!-- <p class="mt-5 mb-3 text-muted">Created by Marcus Snow</p>
